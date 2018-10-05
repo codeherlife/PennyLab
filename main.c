@@ -17,9 +17,8 @@ void header(void);
 int table(double);
 
 int main(void) {
+    int numDays;
     double moneyGoal = 0;
-    //should i add the numDays var here? do all var declarations need to be at the top of the document?
-    // after var declarations include the fopen thing
     fp = fopen("csis.txt", "w");
     
     printf(     "What is your money savings goal? \n");
@@ -28,15 +27,13 @@ int main(void) {
     
     header();
     
-    int numDays = table(moneyGoal);
+    numDays = table(moneyGoal);
     
     printf(     "It took %d days to accumulate at least $%.2lf \n", numDays, moneyGoal);
     fprintf(fp, "It took %d days to accumulate at least $%.2lf \n", numDays, moneyGoal);
     
-    //fclose comes before return 0
     fclose(fp);
     return 0;
-    
 }
 
 void header(){
